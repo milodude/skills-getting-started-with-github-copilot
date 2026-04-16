@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle unregister clicks using event delegation
   activitiesList.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
     const removeButton = event.target.closest(".remove-participant-btn");
     if (!removeButton) {
       return;
